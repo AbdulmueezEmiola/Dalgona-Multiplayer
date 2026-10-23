@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/6bedd582-a1ee-407c-a57c-e40111c65478>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> b2a9cd04-8fce-43bb-84a7-7ac7f8abab0f
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> b2a9cd04-8fce-43bb-84a7-7ac7f8abab0f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 6abba354-baf1-4346-8ebd-66fc004c90a0
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/6abba354-baf1-4346-8ebd-66fc004c90a0>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: d5f4aeea-0b98-4cc6-8817-949bc78a5922
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    gameController: false
+    matchEndScreen: false
+    player1LivesText: false
+    player1ScoreText: false
+    player2LivesText: false
+    player2ScoreText: false
+    roundCap: false
+    shapeController: false
+    turnBased: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - turnBased: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      gameController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      shapeController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      matchEndScreen: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      player1ScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      player2ScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      player1LivesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      player2LivesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      roundCap: 10
+  ScriptTypes:
+    -
+      {}

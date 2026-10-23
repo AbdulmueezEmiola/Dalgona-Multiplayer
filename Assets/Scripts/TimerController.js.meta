@@ -1,0 +1,48 @@
+- !<AssetImportMetadata/93c69dc0-bcc9-4a6b-ae81-187df2409f62>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> db244af6-c4e4-41e7-926e-ff9519455dae
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> db244af6-c4e4-41e7-926e-ff9519455dae
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 7e8ca129-9a1b-4ac4-a0b2-83788ac0e06d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/7e8ca129-9a1b-4ac4-a0b2-83788ac0e06d>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: ee5cb7e8-43ec-415a-9563-c45134bd3b06
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    crackScript: false
+    startTime: false
+    timerText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - timerText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      startTime: !<float> 10.000000
+      crackScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
