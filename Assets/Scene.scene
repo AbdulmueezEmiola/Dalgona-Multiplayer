@@ -118,6 +118,7 @@
   EnvMapRotation: 0.000000
   DiffuseEnvTexture: !<reference> 00000000-0000-0000-0000-000000000000
   SpecularEnvTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  SpecularCubemapTexture: !<reference> 00000000-0000-0000-0000-000000000000
   Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
   DynamicEnvInputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -165,6 +166,7 @@
   EnvMapRotation: 0.000000
   DiffuseEnvTexture: !<reference> 2013a19b-93c1-4f21-b7ea-876a33550c7b
   SpecularEnvTexture: !<reference> d795fd46-e16b-4cb9-8dfb-4ef227298f7a
+  SpecularCubemapTexture: !<reference> 00000000-0000-0000-0000-000000000000
   Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
   DynamicEnvInputTexture: !<reference> 00000000-0000-0000-0000-000000000000
@@ -400,6 +402,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: 0%
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -986,6 +989,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: A Tie!!!
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -1511,7 +1515,8 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: Let's play again
+  Text: "Let's play again"
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -1794,7 +1799,7 @@
       requireTurnSubmission: true
       allowChangingTurnVariablesAfterTurnSubmission: false
       useTurnLimit: true
-      turnLimitInput: 3
+      turnLimitInput: 4
       useTurnHistory: false
       turnsSavedLimitInput: 0
       autoRestoreTurn: true
@@ -1820,7 +1825,7 @@
         - variables:
             []
           isTurnComplete: false
-      debugAssociatedDataString: "{\"key1\": \"value1\", \"key2\":0}"
+      debugAssociatedDataString: '{"key1": "value1", "key2":0}'
       debugTurnHistoryStrings:
         []
       _onTurnStartResponses:
@@ -2445,6 +2450,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: 0
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2642,6 +2648,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: YOU LOST A LIFE
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2878,6 +2885,9 @@
   ScriptAsset: !<reference> 8de7b745-07a0-404d-a69d-47dd3ea7be0a
   ScriptInputsDefault:
     dotSizeMultiplier: true
+    pendingDotAlpha: true
+    stallSeconds: true
+    fadeInDuration: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2886,6 +2896,9 @@
       dotPrefab: !<reference.ObjectPrefab> 1f6cb3d1-c967-4cd0-b125-3192e52b9a57
       shapeController: !<reference.ScriptComponent> 961e666e-0b5f-4794-88b6-19eacaf0d8f4
       dotSizeMultiplier: !<float> 2.000000
+      pendingDotAlpha: 0.320000
+      stallSeconds: !<float> 3.000000
+      fadeInDuration: 0.600000
   ScriptTypes:
     "":
       {}
@@ -3303,6 +3316,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: 2 Lives Remaining
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -3453,6 +3467,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: Trace the Shape
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -3940,6 +3955,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: 0
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -4092,6 +4108,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: ❤️❤️❤️
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -4206,6 +4223,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: You are the best!!!
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -4411,6 +4429,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: You Won!!!
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -4544,6 +4563,7 @@
     - !<own> dce1990d-6e8d-4f66-8d75-092187aa7b15
     - !<own> 0f1b0862-65b8-4766-b365-8b1e2afcb848
     - !<own> 2f0d197c-3eb3-40ce-8a02-c7f9d29703c6
+    - !<own> eb31559d-a694-40ff-b751-ab5af8816a3a
 - !<Text/c99a1831-b8e0-4f4b-9df6-1e27bbbecdd5>
   PrefabRemaps:
     []
@@ -4557,6 +4577,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: ❤️❤️❤️
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -5062,7 +5083,8 @@
   Enabled: true
   ScriptAsset: !<reference> b2a9cd04-8fce-43bb-84a7-7ac7f8abab0f
   ScriptInputsDefault:
-    {}
+    roundText: true
+    startingLives: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -5070,12 +5092,12 @@
       turnBased: !<reference.ScriptComponent> 59a028e9-bd2a-42c5-92c5-8c80edda0836
       gameController: !<reference.ScriptComponent> d1468ff8-b77f-4a8d-aca7-2dcd98d4c587
       shapeController: !<reference.ScriptComponent> 961e666e-0b5f-4794-88b6-19eacaf0d8f4
-      matchEndScreen: !<reference.ScriptComponent> 2f0d197c-3eb3-40ce-8a02-c7f9d29703c6
-      player1ScoreText: !<reference.Text> 7f5d48f8-1d04-4ccd-a451-d41bbfb2022e
-      player2ScoreText: !<reference.Text> b91b46bb-11a9-42cd-8a63-d94809db6c03
-      player1LivesText: !<reference.Text> bc25ac69-332d-469d-a30c-7736f956f857
-      player2LivesText: !<reference.Text> c99a1831-b8e0-4f4b-9df6-1e27bbbecdd5
-      roundCap: 3
+      turnFlowScreens: !<reference.ScriptComponent> eb31559d-a694-40ff-b751-ab5af8816a3a
+      myScoreText: !<reference.Text> 7f5d48f8-1d04-4ccd-a451-d41bbfb2022e
+      myLivesText: !<reference.Text> bc25ac69-332d-469d-a30c-7736f956f857
+      opponentScoreText: !<reference.Text> b91b46bb-11a9-42cd-8a63-d94809db6c03
+      roundText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      startingLives: 3
   ScriptTypes:
     "":
       {}
@@ -5092,6 +5114,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: You Lost!!!
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -5319,6 +5342,31 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<ScriptComponent/eb31559d-a694-40ff-b751-ab5af8816a3a>
+  PrefabRemaps:
+    []
+  Name: TurnFlowScreens
+  Enabled: true
+  ScriptAsset: !<reference> 2982ede6-e96f-4089-8296-762e2aea2687
+  ScriptInputsDefault:
+    turnCompleteRoot: true
+    turnCompleteHeaderText: true
+    turnCompleteScoreText: true
+    matchOverScoreText: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      turnCompleteRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      turnCompleteHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      turnCompleteScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      winArt: !<reference.SceneObject> aefcc762-ea11-4e05-908a-8ff9547442d9
+      loseArt: !<reference.SceneObject> 8cadc632-7797-46c9-8819-5a141c937fb6
+      drawArt: !<reference.SceneObject> 538f039d-8b21-4803-a230-76f3bb900efa
+      matchOverScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScreenTransform/ebbfba0f-f6c8-48c4-9fbc-e26f954faa40>
   PrefabRemaps:
     []
@@ -5582,6 +5630,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Text: Try Again
+  CustomMaterial: !<reference> 00000000-0000-0000-0000-000000000000
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000

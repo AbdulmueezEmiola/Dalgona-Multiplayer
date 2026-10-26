@@ -6,6 +6,56 @@
 // @input float strokeFraction = 0.0273 {"hint":"stroke width / canvas size used when generating the shape art, e.g. 28px stroke on a 1024px canvas = 28/1024"}
 // @input float failToleranceMultiplier = 3.5 {"hint":"How many multiples of edgeTolerance the needle can drift before it counts as going off the shape entirely (used for the lives system)."}
 
+// Walks up from startObject printing each ancestor's actual on-screen
+// width/height/ratio, so a squareness break can be pinpointed to a single
+// link in the parent chain instead of checking each one by hand.
+function debugAncestorChain(startObject, maxLevels) {
+    var obj = startObject;
+    var level = 0;
+    print("--- Screen Transform chain (from shapeObject upward) ---");
+    while (obj && level < maxLevels) {
+        var st = obj.getComponent("Component.ScreenTransform");
+        if (st) {
+            var bl = st.localPointToWorldPoint(new vec2(-1, -1));
+            var tr = st.localPointToWorldPoint(new vec2(1, 1));
+            var w = Math.abs(tr.x - bl.x);
+            var h = Math.abs(tr.y - bl.y);
+            print("  [" + level + "] " + obj.name + ": width=" + w.toFixed(4) +
+                " height=" + h.toFixed(4) + " ratio=" + (w / h).toFixed(4));
+        } else {
+            print("  [" + level + "] " + obj.name + ": (no Component.ScreenTransform)");
+        }
+        obj = obj.getParent();
+        level++;
+    }
+    print("--- end chain ---");
+}
+
+// The vertex math below assumes shapeObject's on-screen rect is a perfect
+// square (the shape art was drawn onto a square canvas). Anything upstream
+// in the parent chain that stretches it non-uniformly — a nested
+// ScreenTransform that isn't 1:1 — will silently skew every vertex, and
+// the skew grows the farther a point is from center. This just measures
+// and reports it so that's not a guessing game.
+function checkShapeSquareness() {
+    var st = script.shapeObject.getComponent("Component.ScreenTransform");
+    var bl = st.localPointToWorldPoint(new vec2(-1, -1));
+    var tr = st.localPointToWorldPoint(new vec2(1, 1));
+    var width = Math.abs(tr.x - bl.x);
+    var height = Math.abs(tr.y - bl.y);
+    var diffPct = (Math.abs(width - height) / Math.max(width, height)) * 100;
+
+    if (diffPct > 0.5) {
+        print("WARNING: shapeObject's on-screen rect is NOT square (width=" + width.toFixed(4) +
+            ", height=" + height.toFixed(4) + ", off by ~" + diffPct.toFixed(1) +
+            "%). Vertex positions will skew, worse the farther a point is from center — check every ScreenTransform between ShapeBox and Shape for non-uniform anchors/offsets.");
+        debugAncestorChain(script.shapeObject, 6);
+    } else {
+        print("shapeObject squareness check OK (width=" + width.toFixed(4) +
+            ", height=" + height.toFixed(4) + ", diff ~" + diffPct.toFixed(2) + "%)");
+    }
+}
+
 function getShapeVertices() {
     var st = script.shapeObject.getComponent("Component.ScreenTransform");
     var raw;
@@ -126,6 +176,8 @@ script.init = function (shapeIndex) {
     if (shapeIndex !== undefined && shapeIndex !== null) {
         selectShapeFromPool(shapeIndex);
     }
+
+    checkShapeSquareness();
 
     script.SHAPE_VERTICES = getShapeVertices();
     if (!script.SHAPE_VERTICES) return;

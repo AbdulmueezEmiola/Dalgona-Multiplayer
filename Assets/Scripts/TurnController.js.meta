@@ -29,14 +29,14 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     gameController: false
-    matchEndScreen: false
-    player1LivesText: false
-    player1ScoreText: false
-    player2LivesText: false
-    player2ScoreText: false
-    roundCap: false
+    myLivesText: false
+    myScoreText: false
+    opponentScoreText: false
+    roundText: false
     shapeController: false
+    startingLives: false
     turnBased: false
+    turnFlowScreens: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -49,12 +49,12 @@
     - turnBased: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       gameController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       shapeController: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
-      matchEndScreen: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
-      player1ScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      player2ScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      player1LivesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      player2LivesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      roundCap: 10
+      turnFlowScreens: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      myScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      myLivesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      opponentScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      roundText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      startingLives: 3
   ScriptTypes:
     -
       {}

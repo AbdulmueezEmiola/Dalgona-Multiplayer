@@ -1,0 +1,64 @@
+- !<AssetImportMetadata/01ad61ee-941f-4158-ae6c-ab7bd96fea81>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 2982ede6-e96f-4089-8296-762e2aea2687
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 2982ede6-e96f-4089-8296-762e2aea2687
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> a3cd1e87-a3d0-4ccc-9f11-aef6fc20b179
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/a3cd1e87-a3d0-4ccc-9f11-aef6fc20b179>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 5c24bc90-2190-4844-904f-eb2081bc9fff
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    drawArt: false
+    drawHeaderText: false
+    loseArt: false
+    loseHeaderText: false
+    turnCompleteFailArt: false
+    turnCompleteHeaderText: false
+    turnCompleteRoot: false
+    turnCompleteScoreText: false
+    turnCompleteSuccessArt: false
+    winArt: false
+    winHeaderText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - turnCompleteRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      turnCompleteHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      turnCompleteScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      turnCompleteSuccessArt: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      turnCompleteFailArt: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      winArt: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      loseArt: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      drawArt: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      winHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      loseHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      drawHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
