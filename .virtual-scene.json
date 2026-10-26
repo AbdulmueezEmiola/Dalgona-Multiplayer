@@ -10905,7 +10905,7 @@
               ]
             },
             "horizontalOverflow": {
-              "value": "Overflow",
+              "value": "Shrink",
               "type": "enum",
               "enumType": "Editor.Components.HorizontalOverflow",
               "options": [
@@ -12565,7 +12565,7 @@
           "name": "Text",
           "enabled": true,
           "properties": {
-            "text": "Abdul Wins!",
+            "text": "You Won the Match!",
             "font": "@asset:Fonts/Fraunces.ttf",
             "fontSource": "@asset:Fonts/Fraunces.ttf",
             "size": 48,
@@ -12583,7 +12583,7 @@
               ]
             },
             "horizontalOverflow": {
-              "value": "Overflow",
+              "value": "Shrink",
               "type": "enum",
               "enumType": "Editor.Components.HorizontalOverflow",
               "options": [
@@ -13501,7 +13501,7 @@
     {
       "id": "538f039d-8b21-4803-a230-76f3bb900efa",
       "name": "Game Draw",
-      "enabled": true,
+      "enabled": false,
       "parentId": "bd3cc3c9-f058-41bd-902a-fffb7ce7c30f",
       "transform": {
         "position": [
@@ -14597,7 +14597,7 @@
     {
       "id": "19cd5f31-e69e-4a96-b4c7-ae25cae61046",
       "name": "SubHeader",
-      "enabled": true,
+      "enabled": false,
       "parentId": "b7adcfbf-125d-4afd-a142-8705f184152b",
       "transform": {
         "position": [
@@ -17437,8 +17437,8 @@
       ]
     },
     {
-      "id": "f26ad8df-3313-4bc3-95c3-5ccc520c9099",
-      "name": "MatchOverScoreText",
+      "id": "60d28034-ee53-458e-92d6-162baf5d746e",
+      "name": "MatchOverTimeText",
       "enabled": true,
       "parentId": "bd3cc3c9-f058-41bd-902a-fffb7ce7c30f",
       "transform": {
@@ -17461,7 +17461,7 @@
       "layers": 1048576,
       "components": [
         {
-          "id": "e7a9b00e-2ac3-464b-8e62-bb75ca93a703",
+          "id": "7a489ab5-c44f-4670-bd95-8b6bfca86578",
           "type": "ScreenTransform",
           "name": "Screen Transform",
           "enabled": true,
@@ -17503,20 +17503,20 @@
             "advanced": false,
             "name": "Screen Transform",
             "enabled": true,
-            "sceneObject": "@sceneObject:MatchOverScoreText",
+            "sceneObject": "@sceneObject:MatchOverTimeText",
             "isPrefabInstanceRoot": false,
             "hasPrefabChanges": false,
-            "id": "e7a9b00e-2ac3-464b-8e62-bb75ca93a703",
+            "id": "7a489ab5-c44f-4670-bd95-8b6bfca86578",
             "type": "ScreenTransform"
           }
         },
         {
-          "id": "211a2b2c-4557-4e62-a136-cd2bd62da688",
+          "id": "22f62e1a-5b02-4b70-9025-f50bd09a2db5",
           "type": "Text",
           "name": "Text",
           "enabled": true,
           "properties": {
-            "text": "Abdul 2  ·  Sam 2",
+            "text": "",
             "font": "@asset:Fonts/Fraunces.ttf",
             "fontSource": "@asset:Fonts/Fraunces.ttf",
             "size": 28,
@@ -17534,7 +17534,7 @@
               ]
             },
             "horizontalOverflow": {
-              "value": "Overflow",
+              "value": "Shrink",
               "type": "enum",
               "enumType": "Editor.Components.HorizontalOverflow",
               "options": [
@@ -17588,7 +17588,7 @@
                 "FillAndCut"
               ]
             },
-            "textFill.id": "dc549926-cc6a-429c-b18c-48de6581e4b3",
+            "textFill.id": "056c6bbd-c51a-41d5-82a7-e5b63ce7edd7",
             "textFill.type": "TextFill",
             "dropshadowSettings.enabled": false,
             "dropshadowSettings.fill.mode": {
@@ -17632,13 +17632,13 @@
                 "FillAndCut"
               ]
             },
-            "dropshadowSettings.fill.id": "730fbea1-d6b5-4ad6-a8d2-bc15f5628713",
+            "dropshadowSettings.fill.id": "aea90071-dfb1-412e-ac4c-0ec58a59e429",
             "dropshadowSettings.fill.type": "TextFill",
             "dropshadowSettings.offset": {
               "x": 0.25,
               "y": 0.25
             },
-            "dropshadowSettings.id": "0a0cc9cb-401a-438d-836c-265c69fbebeb",
+            "dropshadowSettings.id": "c9a9651c-6477-498a-9696-0e205f9613f0",
             "dropshadowSettings.type": "DropshadowSettings",
             "outlineSettings.enabled": false,
             "outlineSettings.fill.mode": {
@@ -17682,10 +17682,10 @@
                 "FillAndCut"
               ]
             },
-            "outlineSettings.fill.id": "64f389e9-0cd7-4266-b2b0-d0eec780dcc6",
+            "outlineSettings.fill.id": "b7ad243c-4ae2-472c-b6de-13e1593313ac",
             "outlineSettings.fill.type": "TextFill",
             "outlineSettings.size": 0.25,
-            "outlineSettings.id": "a46d4840-3ffb-4510-bf4b-c3467e94f982",
+            "outlineSettings.id": "42b62527-042a-490a-b759-4354a75e3bea",
             "outlineSettings.type": "OutlineSettings",
             "backgroundSettings.enabled": false,
             "backgroundSettings.fill.mode": {
@@ -17729,7 +17729,7 @@
                 "FillAndCut"
               ]
             },
-            "backgroundSettings.fill.id": "e19c5a9c-3654-476a-aabf-1bcd2c11e263",
+            "backgroundSettings.fill.id": "1076b433-e35e-48da-90ba-16d5e7da0b75",
             "backgroundSettings.fill.type": "TextFill",
             "backgroundSettings.margins.leftBottom": {
               "x": 0,
@@ -17744,7 +17744,7 @@
             "backgroundSettings.margins.top": 0,
             "backgroundSettings.margins.bottom": 0,
             "backgroundSettings.cornerRadius": 0,
-            "backgroundSettings.id": "c1e171f0-ba9b-4c8d-bf8b-f4758a1e630a",
+            "backgroundSettings.id": "e0500aa3-9964-4288-a849-7a0e450a9587",
             "backgroundSettings.type": "BackgroundSettings",
             "advancedLayout.extentsTarget": null,
             "advancedLayout.letterSpacing": 0,
@@ -17759,9 +17759,9 @@
                 "AllLower"
               ]
             },
-            "advancedLayout.id": "10530394-362f-43f4-98b7-4f42dd5132cf",
+            "advancedLayout.id": "6059c3a6-ea27-40a6-8471-a81b9a007a03",
             "advancedLayout.type": "TextAdvancedLayout",
-            "sizeToFit": true,
+            "sizeToFit": false,
             "enableRichText": false,
             "letterSpacing": 0,
             "lineSpacing": 1,
@@ -17858,10 +17858,10 @@
             "renderOrder": 10,
             "name": "Text",
             "enabled": true,
-            "sceneObject": "@sceneObject:MatchOverScoreText",
+            "sceneObject": "@sceneObject:MatchOverTimeText",
             "isPrefabInstanceRoot": false,
             "hasPrefabChanges": false,
-            "id": "211a2b2c-4557-4e62-a136-cd2bd62da688",
+            "id": "22f62e1a-5b02-4b70-9025-f50bd09a2db5",
             "type": "Text"
           }
         }
@@ -18411,6 +18411,12 @@
               "type": "Component.ScriptComponent",
               "uiInfo": "{\"hint\":\"The Turn Based custom component (TurnBased.lsc). Configure on IT directly, in its own Inspector: Require Turn Submission = true, Use Turn Limit = true with an EVEN Turn Limit, and Game Over Scene Objects.\"}"
             },
+            "timerController": {
+              "isScriptInput": true,
+              "value": null,
+              "type": "Component.ScriptComponent",
+              "uiInfo": "{\"hint\":\"Optional — TimerController.js driving the live 'Trace the Shape · 0:0X' stopwatch. Started at turn start, stopped once the turn ends.\"}"
+            },
             "roundText": {
               "isScriptInput": true,
               "value": {
@@ -18478,8 +18484,9 @@
             "inputNames.4": "roundText",
             "inputNames.5": "shapeController",
             "inputNames.6": "startingLives",
-            "inputNames.7": "turnBased",
-            "inputNames.8": "turnFlowScreens",
+            "inputNames.7": "timerController",
+            "inputNames.8": "turnBased",
+            "inputNames.9": "turnFlowScreens",
             "name": "TurnController",
             "enabled": true,
             "sceneObject": "@sceneObject:GameManager",
@@ -18569,7 +18576,7 @@
                 "name": "Text"
               },
               "type": "Component.Text",
-              "uiInfo": "{\"hint\":\"Optional — 'Your score: X' summary.\"}"
+              "uiInfo": "{\"hint\":\"Optional — 'Your score: X' summary. On a successful trace, also appends the time it took and, once the other player has also traced this round's shape, whether you were faster.\"}"
             },
             "drawArt": {
               "isScriptInput": true,
@@ -18597,14 +18604,14 @@
               "type": "SceneObject",
               "uiInfo": "{\"hint\":\"Optional — shown instead of turnCompleteSuccessArt when payload.success is false.\"}"
             },
-            "matchOverScoreText": {
+            "matchOverTimeText": {
               "isScriptInput": true,
               "value": {
-                "UUID": "211a2b2c-4557-4e62-a136-cd2bd62da688",
+                "UUID": "22f62e1a-5b02-4b70-9025-f50bd09a2db5",
                 "name": "Text"
               },
               "type": "Component.Text",
-              "uiInfo": "{\"hint\":\"Optional — e.g. 'Abdul 4  ·  Sam 3' final tally shown alongside the win/lose/draw art.\"}"
+              "uiInfo": "{\"hint\":\"Optional — e.g. 'Abdul 12.4s  ·  Sam 18.1s', each player's cumulative time across all their successful traces this match.\"}"
             },
             "loseHeaderText": {
               "isScriptInput": true,
@@ -18646,7 +18653,7 @@
             "inputNames.1": "drawHeaderText",
             "inputNames.2": "loseArt",
             "inputNames.3": "loseHeaderText",
-            "inputNames.4": "matchOverScoreText",
+            "inputNames.4": "matchOverTimeText",
             "inputNames.5": "turnCompleteFailArt",
             "inputNames.6": "turnCompleteHeaderText",
             "inputNames.7": "turnCompleteRoot",

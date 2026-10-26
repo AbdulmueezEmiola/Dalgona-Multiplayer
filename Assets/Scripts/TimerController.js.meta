@@ -28,8 +28,6 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    crackScript: false
-    startTime: false
     timerText: false
   ScriptTypesHidden:
     {}
@@ -41,8 +39,6 @@
     []
   DefaultScriptInputs:
     - timerText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      startTime: !<float> 10.000000
-      crackScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

@@ -34,6 +34,7 @@
 //@input Component.Text opponentScoreText {"hint":"Optional — the other player's last-known cumulative score, for competitive context."}
 //@input Component.Text roundText {"hint":"Optional — shows 'Round N' (or 'Round N / M' if the Turn Based component's own Turn Limit is set). A round is 2 turns — one per player on the same shape."}
 //@input int startingLives = 3 {"hint":"Fresh lives granted at the start of EVERY turn — lives do NOT persist between turns, only the score does."}
+//@input Component.ScriptComponent timerController {"hint":"Optional — TimerController.js driving the live 'Trace the Shape · 0:0X' stopwatch. Started at turn start, stopped once the turn ends."}
 
 var HEART_CHAR = "❤️"; // keep in sync with SinglePlayerController.js if you reuse both
 
@@ -42,11 +43,16 @@ var currentTurnCount = -1;
 
 var myScore = 0;
 var otherScore = 0;
+var myTotalTime = 0; // cumulative seconds across all of THIS player's successful traces
+var otherTotalTime = 0;
 var lives = 0;
 
 var shapeBag = [];
 var currentShapeIndex = -1;
 var shapeAssignedTurn = -999;
+
+var turnStartTime = 0;
+var otherPlayerRoundTime = null; // this round's time from whoever traced it first, if they succeeded
 
 var turnIsOver = false;
 
@@ -79,16 +85,29 @@ function turnStarted(e) {
         ensureRoundShape();
         updateScoreDisplay();
         updateLivesDisplay();
+        turnStartTime = getTime();
+        if (script.timerController && script.timerController.resetTimer) {
+            script.timerController.resetTimer();
+        }
         script.gameController.startRound(currentShapeIndex);
     });
 }
 
-// Global Variables for genuinely shared state (the round's shape); Current/
-// Other User Variables for everything scoped to an individual player —
-// matches Snap's recommended storage split.
+// A round is 2 turns (one per player tracing the same shape) — shared with
+// updateRoundDisplay()'s own round-number math so the two never drift apart.
+function currentRoundNumber() {
+    return Math.floor(currentTurnCount / 2) + 1;
+}
+
+// Global Variables for genuinely shared state (the round's shape, and
+// whoever traces it first's time); Current/Other User Variables for
+// everything scoped to an individual player — matches Snap's recommended
+// storage split.
 async function loadPersistentState() {
     myScore = (await script.turnBased.getCurrentUserVariable("score")) || 0;
     otherScore = (await script.turnBased.getOtherUserVariable("score")) || 0;
+    myTotalTime = (await script.turnBased.getCurrentUserVariable("totalTime")) || 0;
+    otherTotalTime = (await script.turnBased.getOtherUserVariable("totalTime")) || 0;
 
     var storedBag = await script.turnBased.getGlobalVariable("shapeBag");
     shapeBag = (storedBag === undefined) ? [] : storedBag;
@@ -98,6 +117,13 @@ async function loadPersistentState() {
 
     var storedAssignedTurn = await script.turnBased.getGlobalVariable("shapeAssignedTurn");
     shapeAssignedTurn = (storedAssignedTurn === undefined) ? -999 : storedAssignedTurn;
+
+    // Whoever traces THIS round's shape first (if they succeed) leaves their
+    // time here under a key scoped to this round, so whoever goes second
+    // picks it up for free — no separate round-trip, and no stale-value
+    // cleanup needed since every round owns its own key.
+    var storedRoundTime = await script.turnBased.getGlobalVariable("roundTime_" + currentRoundNumber());
+    otherPlayerRoundTime = (storedRoundTime === undefined) ? null : storedRoundTime;
 }
 
 // Fisher-Yates shuffle of 0..count-1
@@ -156,7 +182,7 @@ function updateLivesDisplay() {
 function updateRoundDisplay() {
     if (!script.roundText) return;
 
-    var roundNumber = Math.floor(currentTurnCount / 2) + 1;
+    var roundNumber = currentRoundNumber();
     var turnLimit = script.turnBased.turnLimit;
 
     script.roundText.text = turnLimit > 0
@@ -203,14 +229,31 @@ function loseLife() {
 // screen, then hands off via endTurn(). Fire-and-forget async:
 // GameController doesn't wait on this.
 async function finishTurn(success) {
+    if (script.timerController && script.timerController.stopTimer) {
+        script.timerController.stopTimer();
+    }
+
     await script.turnBased.setCurrentUserVariable("score", myScore);
     script.turnBased.setScore(myScore); // native Snapchat score shown on the captured Snap
+
+    // Only a successful trace produces a comparable time — a failed attempt
+    // didn't finish, so there's nothing meaningful to time or persist.
+    var mySeconds = null;
+    if (success) {
+        mySeconds = getTime() - turnStartTime;
+        script.turnBased.setGlobalVariable("roundTime_" + currentRoundNumber(), mySeconds);
+
+        myTotalTime += mySeconds;
+        await script.turnBased.setCurrentUserVariable("totalTime", myTotalTime);
+    }
 
     if (script.turnFlowScreens && script.turnFlowScreens.showTurnComplete) {
         script.turnFlowScreens.showTurnComplete({
             success: success,
             myScore: myScore,
-            otherScore: otherScore
+            otherScore: otherScore,
+            mySeconds: mySeconds,
+            otherSeconds: otherPlayerRoundTime
         });
     }
 
@@ -243,7 +286,9 @@ async function handleGameOver() {
             myScore: myScore,
             otherScore: otherScore,
             myName: myName,
-            otherName: otherName
+            otherName: otherName,
+            myTotalTime: myTotalTime,
+            otherTotalTime: otherTotalTime
         });
     } else {
         print("Match over: " + outcome + " (" + myName + ": " + myScore + ", " + otherName + ": " + otherScore + ")");

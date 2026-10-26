@@ -32,6 +32,7 @@
     drawHeaderText: false
     loseArt: false
     loseHeaderText: false
+    matchOverTimeText: false
     turnCompleteFailArt: false
     turnCompleteHeaderText: false
     turnCompleteRoot: false
@@ -59,6 +60,7 @@
       winHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       loseHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       drawHeaderText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      matchOverTimeText: !<reference.Text> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
